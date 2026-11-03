@@ -1,0 +1,111 @@
+{
+  "model_name": "NEURON-DeepANN-v1",
+  "architecture": "Deep Multi-Layer Perceptron (14-128-64-32-3)",
+  "accuracy": 0.9917,
+  "precision": 0.9919,
+  "recall": 0.9917,
+  "f1_score": 0.9917,
+  "total_training_samples": 600,
+  "feature_count": 14,
+  "feature_names": [
+    "mean_hold_time",
+    "std_hold_time",
+    "mean_flight_time",
+    "std_flight_time",
+    "flight_skewness",
+    "micro_pause_rate",
+    "pause_duration_ratio",
+    "latency_jitter",
+    "keystroke_entropy",
+    "bimanual_gap",
+    "unimanual_delay",
+    "fatigue_drift_slope",
+    "typing_cadence_cpm",
+    "rhythm_harmonic_ratio"
+  ],
+  "classes": {
+    "0": "HEALTHY_CONTROL",
+    "1": "MILD_MOTOR_FATIGUE",
+    "2": "ELEVATED_TREMOR_RISK"
+  },
+  "confusion_matrix": [
+    [
+      48,
+      0,
+      0
+    ],
+    [
+      0,
+      35,
+      1
+    ],
+    [
+      0,
+      0,
+      36
+    ]
+  ],
+  "benchmark_comparison": {
+    "Deep_ANN": 0.9917,
+    "Random_Forest": 1.0,
+    "Gradient_Boosting": 0.9917
+  },
+  "top_biomarkers": [
+    [
+      "pause_duration_ratio",
+      0.1859
+    ],
+    [
+      "fatigue_drift_slope",
+      0.1665
+    ],
+    [
+      "micro_pause_rate",
+      0.1363
+    ],
+    [
+      "latency_jitter",
+      0.1363
+    ],
+    [
+      "bimanual_gap",
+      0.0795
+    ],
+    [
+      "std_flight_time",
+      0.0785
+    ]
+  ],
+  "training_loss_history": [
+    0.9256,
+    0.4971,
+    0.3342,
+    0.2464,
+    0.1622,
+    0.105,
+    0.0613,
+    0.044,
+    0.0293,
+    0.0173,
+    0.0105,
+    0.0076,
+    0.0058,
+    0.0044,
+    0.0034,
+    0.0027,
+    0.0023,
+    0.002,
+    0.0018,
+    0.0016,
+    0.0015,
+    0.0014,
+    0.0013,
+    0.0013,
+    0.0012,
+    0.0012,
+    0.0012,
+    0.0011,
+    0.0011,
+    0.0011
+  ]
+}
