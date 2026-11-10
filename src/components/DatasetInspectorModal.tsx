@@ -8,6 +8,8 @@ interface DatasetInspectorModalProps {
   onDatasetUploaded: (newMetrics: any) => void;
 }
 
+const API_BASE = (import.meta as any).env?.VITE_API_URL || "";
+
 export const DatasetInspectorModal: React.FC<DatasetInspectorModalProps> = ({
   isOpen,
   onClose,
@@ -30,7 +32,7 @@ export const DatasetInspectorModal: React.FC<DatasetInspectorModalProps> = ({
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/api/train-custom-dataset", {
+      const res = await fetch(`${API_BASE}/api/train-custom-dataset`, {
         method: "POST",
         body: formData
       });

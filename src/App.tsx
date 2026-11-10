@@ -6,6 +6,8 @@ import { DatasetInspectorModal } from "./components/DatasetInspectorModal";
 import { DoctorReportModal } from "./components/DoctorReportModal";
 import type { RawKeystrokeEvent, AnalysisResponse } from "./types";
 
+const API_BASE = (import.meta as any).env?.VITE_API_URL || "";
+
 export function App() {
   const [analysis, setAnalysis] = useState<AnalysisResponse | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -15,7 +17,7 @@ export function App() {
 
   // Fetch model stats on mount
   useEffect(() => {
-    fetch("http://localhost:8000/api/model-stats")
+    fetch(`${API_BASE}/api/model-stats`)
       .then((res) => res.json())
       .then((data) => setMetrics(data))
       .catch(() => {
@@ -31,7 +33,7 @@ export function App() {
   const handleAnalyze = async (events: RawKeystrokeEvent[], patientId: string = "USER-LIVE") => {
     setIsAnalyzing(true);
     try {
-      const res = await fetch("http://localhost:8000/api/analyze-keystrokes", {
+      const res = await fetch(`${API_BASE}/api/analyze-keystrokes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
